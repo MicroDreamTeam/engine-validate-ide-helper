@@ -18,13 +18,13 @@ php validate-ide-helper.php make:validate-ide W7\App\Controller\Account\AccountC
 ```
 也可以添加目录，多个目录或者命名空间，使用空格分割
 ```shell
-php validate-ide-helper.php make:validate-ide --dir app\Controller
+php validate-ide-helper.php make:validate-ide --dir app/Controller
 ```
 生成注释
 
 如果你使用的软擎框架，在安装本扩展后，可直接使用命令
 ```shell
-bin\gerent make:validate-ide [class full name] --dir [path]
+bin/gerent make:validate-ide [class full name] --dir [path]
 ```
 ### 安装
 ```shell
