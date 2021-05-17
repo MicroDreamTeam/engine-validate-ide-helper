@@ -1,6 +1,6 @@
 <?php
 
-namespace W7\Validate\Ide\Helper;
+namespace Itwmw\Validate\Ide\Helper;
 
 /**
  * File reading class

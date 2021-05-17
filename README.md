@@ -28,5 +28,5 @@ bin/gerent make:validate-ide [class full name] --dir [path]
 ```
 ### 安装
 ```shell
-composer require w7/engine-validate-ide-helper --dev
+composer require itwmw/engine-validate-ide-helper --dev
 ```

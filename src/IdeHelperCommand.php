@@ -1,6 +1,6 @@
 <?php
 
-namespace W7\Validate\Ide\Helper;
+namespace Itwmw\Validate\Ide\Helper;
 
 use Composer\Autoload\ClassLoader;
 use Ergebnis\Classy\Constructs;

@@ -1,5 +1,5 @@
 {
-    "name": "w7/engine-validate-ide-helper",
+    "name": "itwmw/engine-validate-ide-helper",
     "description": "自动生成提示验证器位置的注释",
     "authors": [
         {
@@ -9,7 +9,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "W7\\Validate\\Ide\\Helper\\": "src"
+            "Itwmw\\Validate\\Ide\\Helper\\": "src"
         }
     },
     "bin": [
@@ -26,7 +26,7 @@
     "extra": {
         "rangine": {
             "providers": [
-                "W7\\Validate\\Ide\\Helper\\Provider\\RangineProvider"
+                "Itwmw\\Validate\\Ide\\Helper\\Provider\\RangineProvider"
             ]
         }
     },
