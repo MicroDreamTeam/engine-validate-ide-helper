@@ -2,6 +2,7 @@
 
 namespace Itwmw\Validate\Ide\Helper\Provider;
 
+use Itwmw\Validate\Ide\Helper\IdeHelperCommand;
 use W7\Console\Application;
 use W7\Core\Provider\ProviderAbstract;
 
