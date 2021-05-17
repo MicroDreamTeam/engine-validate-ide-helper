@@ -1,6 +1,6 @@
 <?php
 
-namespace W7\Validate\Ide\Helper;
+namespace W7\Validate\Ide\Helper\Provider;
 
 use W7\Console\Application;
 use W7\Core\Provider\ProviderAbstract;

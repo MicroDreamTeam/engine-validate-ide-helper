@@ -20,12 +20,13 @@
         "php": "^7.2.5|^8.0",
         "w7/engine-validate": "^3.0|^2.0",
         "symfony/console": "^5.2",
-        "phpdocumentor/reflection-docblock": "^5.2"
+        "ergebnis/classy": "^1.1",
+        "symfony/finder": "^5.2|^4.0"
     },
     "extra": {
         "rangine": {
             "providers": [
-                "W7\\Validate\\Ide\\Helper\\RangineProvider"
+                "W7\\Validate\\Ide\\Helper\\Provider\\RangineProvider"
             ]
         }
     },
