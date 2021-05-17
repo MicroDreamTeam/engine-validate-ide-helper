@@ -1,0 +1,34 @@
+{
+    "name": "w7/engine-validate-ide-helper",
+    "description": "自动生成提示验证器位置的注释",
+    "authors": [
+        {
+            "name": "虞灪",
+            "email": "995645888@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "W7\\Validate\\Ide\\Helper\\": "src"
+        }
+    },
+    "bin": [
+        "validate-ide-helper"
+    ],
+    "license": "Apache-2.0",
+    "require": {
+        "php": "^7.2.5|^8.0",
+        "w7/engine-validate": "^3.0|^2.0",
+        "symfony/console": "^5.2",
+        "phpdocumentor/reflection-docblock": "^5.2"
+    },
+    "extra": {
+        "rangine": {
+            "providers": [
+                "W7\\Validate\\Ide\\Helper\\RangineProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
