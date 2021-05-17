@@ -12,9 +12,6 @@
             "Itwmw\\Validate\\Ide\\Helper\\": "src"
         }
     },
-    "bin": [
-        "validate-ide-helper"
-    ],
     "license": "Apache-2.0",
     "require": {
         "php": "^7.2.5|^8.0",
