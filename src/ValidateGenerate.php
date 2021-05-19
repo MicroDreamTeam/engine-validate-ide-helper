@@ -4,7 +4,7 @@ namespace Itwmw\Validate\Ide\Helper;
 
 use ReflectionClass;
 use ReflectionMethod;
-use W7\Validate\Support\Storage\ValidateFactory;
+use W7\Validate\Support\Storage\ValidateMiddlewareConfig;
 use W7\Validate\Validate;
 
 class ValidateGenerate
@@ -47,7 +47,7 @@ class ValidateGenerate
             }
 
             try {
-                $validate = ValidateFactory::getValidate($reflection->getName(), $method->getName());
+                $validate = ValidateMiddlewareConfig::instance()->getValidateFactory()->getValidate($reflection->getName(), $method->getName());
                 if ($validate instanceof Validate) {
                     $validateClass = get_class($validate);
                     $scene         = $validate->getCurrentSceneName();
