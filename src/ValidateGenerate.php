@@ -45,6 +45,9 @@ class ValidateGenerate
             if ($method->getDeclaringClass()->getName() != $reflection->getName()) {
                 continue;
             }
+            if ($method->getFileName() !== $filename) {
+                continue;
+            }
 
             try {
                 $validate = ValidateMiddlewareConfig::instance()->getValidateFactory()->getValidate($reflection->getName(), $method->getName());

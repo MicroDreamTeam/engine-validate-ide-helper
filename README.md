@@ -26,6 +26,10 @@ php validate-ide-helper.php make:validate-ide --dir app/Controller
 ```shell
 bin/gerent make:validate-ide [class full name] --dir [path]
 ```
+如果你使用的Laravel框架，在安装本扩展后，可直接使用命令
+```shell
+php artisan make:validate-ide  [class full name] --dir [path]
+```
 ### 安装
 ```shell
 composer require itwmw/engine-validate-ide-helper --dev

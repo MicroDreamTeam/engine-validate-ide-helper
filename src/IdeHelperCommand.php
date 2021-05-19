@@ -48,7 +48,10 @@ class IdeHelperCommand extends Command
                 }
             }
         }
-        
+
+        if (empty($names)) {
+            return 1;
+        }
         $progress = new ProgressBar($output, count($names));
         $progress->setFormat('%current%/%max% [%bar%] %message% 已用时间：%elapsed:-6s%');
         $progress->setMessage('正在处理' . $names[0]);

@@ -25,6 +25,11 @@
             "providers": [
                 "Itwmw\\Validate\\Ide\\Helper\\Provider\\RangineProvider"
             ]
+        },
+        "laravel": {
+            "providers": [
+                "Itwmw\\Validate\\Ide\\Helper\\Provider\\LaravelProvider"
+            ]
         }
     },
     "minimum-stability": "dev",
