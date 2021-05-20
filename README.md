@@ -16,11 +16,11 @@ composer require itwmw/engine-validate-ide-helper --dev
 ## 使用
 为了更方便的定位验证器以及字段，可使用
 ```shell
-vendor/validate-ide-helper make:validate-ide [完整命名空间或者完整文件名] --dir [路径]
+vendor/bin/validate-ide-helper make:validate-ide [完整命名空间或者完整文件名] --dir [文件目录]
 ```
 如
 ```shell
-vendor/validate-ide-helper make:validate-ide W7\App\Controller\Account\AccountController
+vendor/bin/validate-ide-helper make:validate-ide W7\App\Controller\Account\AccountController
 ```
 也可以添加目录，多个目录或者命名空间，使用空格分割
 ```shell
@@ -29,12 +29,12 @@ php validate-ide-helper.php make:validate-ide --dir app/Controller
 ### 软擎
 如果你使用的软擎框架，在安装本扩展后，可直接使用命令
 ```shell
-bin/gerent make:validate-ide [完整命名空间或者完整文件名] --dir [路径]
+bin/gerent make:validate-ide [完整命名空间或者完整文件名] --dir [文件目录]
 ```
 ### Laravel
 如果你使用的Laravel框架，在安装本扩展后，可直接使用命令
 ```shell
-php artisan make:validate-ide [完整命名空间或者完整文件名] --dir [路径]
+php artisan make:validate-ide [完整命名空间或者完整文件名] --dir [文件目录]
 ```
 ## WebStorm集成
 文件->设置->工具->外部工具->添加
