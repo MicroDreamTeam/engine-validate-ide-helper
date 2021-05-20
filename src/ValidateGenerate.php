@@ -54,19 +54,22 @@ class ValidateGenerate
                 if ($validate instanceof Validate) {
                     $validateClass = get_class($validate);
                     $scene         = $validate->getCurrentSceneName();
-
-                    $oldCommon = $method->getDocComment();
-
                     if (method_exists($validate, 'scene' . ucfirst($scene))) {
                         $validateClass .= '::scene' . ucfirst($scene) . '()';
                     } else {
                         $validateClass .= '::$scene';
                     }
+                    $validateClass = '\\' . $validateClass;
+                } else {
+                    $validateClass = null;
+                }
+                
+                $methodDefine = $file->readLine($method->getStartLine());
+                $publicPrefix = $this->getPublicPrefix($methodDefine);
+                $newCommon    = $this->makeDocComment($method, $validateClass, $publicPrefix);
 
-                    $methodDefine = $file->readLine($method->getStartLine());
-                    $publicPrefix = $this->getPublicPrefix($methodDefine);
-                    $newCommon    = $this->makeDocComment($method, '\\' . $validateClass, $publicPrefix);
-
+                if (false !== $newCommon) {
+                    $oldCommon = $method->getDocComment();
                     if ($oldCommon) {
                         $oldCommonLine = count(explode("\n", $oldCommon));
                         $seq           = $this->getBetweenTexts($oldCommon, $methodDefine, $file->readContent($method->getStartLine() - $oldCommonLine - 1, $method->getStartLine()));
@@ -90,7 +93,7 @@ class ValidateGenerate
         return mb_substr($str, $startPos, $endPos);
     }
 
-    private function makeDocComment(ReflectionMethod $reflection, string $newComment, string $publicPrefix)
+    private function makeDocComment(ReflectionMethod $reflection, ?string $newComment, string $publicPrefix)
     {
         $doc  = $reflection->getDocComment();
         $docs = explode("\n", $doc);
@@ -103,6 +106,13 @@ class ValidateGenerate
             }
         }
 
+        if (null === $newComment) {
+            if (-1 === $validatePos) {
+                return false;
+            }
+            unset($docs[$validatePos]);
+            return implode("\n", $docs);
+        }
         $newValidateDocComment = "@validate {@see $newComment}";
 
         if (-1 !== $validatePos) {
