@@ -14,9 +14,6 @@ class ValidateGenerate
 
     public function __construct(string $class)
     {
-        if (!class_exists($class)) {
-            throw new \RuntimeException('class：' . $class . ' does not exist');
-        }
         $this->class = $class;
     }
 

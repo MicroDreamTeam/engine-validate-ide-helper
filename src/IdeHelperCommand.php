@@ -25,7 +25,23 @@ class IdeHelperCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $names        = $input->getArgument('name');
+        $names = $input->getArgument('name');
+        if (!empty($names)) {
+            $_names = $names;
+            $names  = [];
+            foreach ($_names as $name) {
+                if (file_exists($name)) {
+                    $constructs = Constructs::fromSource(file_get_contents($name));
+                    foreach ($constructs as $construct) {
+                        $names[] = $construct->name();
+                    }
+                } elseif (class_exists($name)) {
+                    $names[] = $name;
+                } else {
+                    throw new \RuntimeException('class：' . $name . ' does not exist');
+                }
+            }
+        }
         $dirs         = $input->getOption('dir');
         $ignoreVendor = (bool)$input->getOption('vendor');
         $reflection   = new ReflectionClass(ClassLoader::class);
@@ -50,21 +66,23 @@ class IdeHelperCommand extends Command
         }
 
         if (empty($names)) {
+            $output->writeln("\033[0;32m\nSuccess\033[0m");
             return 1;
         }
         $progress = new ProgressBar($output, count($names));
-        $progress->setFormat('%current%/%max% [%bar%] %message% 已用时间：%elapsed:-6s%');
-        $progress->setMessage('正在处理' . $names[0]);
+        $progress->setFormat('%current%/%max% [%bar%] %message%');
+        $progress->setMessage('Being processed:' . $names[0]);
         $progress->start();
 
         foreach ($names as $name) {
             (new ValidateGenerate($name))->generateValidatorCommon();
-            $progress->setMessage($name . '处理完毕');
+            $progress->setMessage($name . 'Processing completed');
             $progress->advance();
         }
 
-        $progress->setMessage('全部处理完毕');
+        $progress->setMessage('All processed');
         $progress->finish();
+        $output->writeln("\033[0;32m\nSuccess\033[0m");
         return 1;
     }
 }
