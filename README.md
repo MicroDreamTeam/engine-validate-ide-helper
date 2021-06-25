@@ -1,7 +1,7 @@
 ## 说明
 此扩展用于生成提示[验证器](https://v.neww7.com)位置的注释
 
-如果你使用了[验证器中间件](https://v.neww7.com/2/Middleware.html),那么所有的验证过程将会在中间件部分完成，传递给控制器的时候已经是处理好的数据。
+如果你使用了[验证器路由中间件](https://v.neww7.com/plugin/engine-validate-middleware.html),那么所有的验证过程将会在中间件部分完成，传递给控制器的时候已经是处理好的数据。
 
 此扩展将根据 [ValidateMiddlewareConfig](https://v.neww7.com/2/Middleware.html) 中的配置生成如下注释，方便定位验证器
 ```php

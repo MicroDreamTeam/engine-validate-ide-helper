@@ -2,9 +2,9 @@
 
 namespace Itwmw\Validate\Ide\Helper;
 
+use Itwmw\Validate\Middleware\ValidateMiddlewareConfig;
 use ReflectionClass;
 use ReflectionMethod;
-use W7\Validate\Support\Storage\ValidateMiddlewareConfig;
 use W7\Validate\Validate;
 
 class ValidateGenerate
