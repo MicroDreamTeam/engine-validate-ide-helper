@@ -14,12 +14,12 @@
     },
     "license": "Apache-2.0",
     "require": {
-        "php": "^7.2.5|^8.0|^8.1",
-        "w7/engine-validate": "^3.4.0",
+        "php": "^7.3|^8.0",
+        "w7/engine-validate": "^4.0",
         "symfony/console": "^5.2",
         "ergebnis/classy": "^1.1",
         "symfony/finder": "^5.2|^4.0",
-        "itwmw/engine-validate-middleware": "^1.0"
+        "itwmw/engine-validate-middleware": "^4.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3"

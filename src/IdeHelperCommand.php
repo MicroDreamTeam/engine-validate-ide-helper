@@ -66,7 +66,7 @@ class IdeHelperCommand extends Command
         }
 
         if (empty($names)) {
-            $output->writeln("\033[0;32m\nSuccess\033[0m");
+            $output->writeln('<info>Success</info>');
             return 1;
         }
         $progress = new ProgressBar($output, count($names));
@@ -82,7 +82,7 @@ class IdeHelperCommand extends Command
 
         $progress->setMessage('All processed');
         $progress->finish();
-        $output->writeln("\033[0;32m\nSuccess\033[0m");
+        $output->writeln('<info>Success</info>');
         return 1;
     }
 }
