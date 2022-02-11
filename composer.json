@@ -16,10 +16,11 @@
     "require": {
         "php": "^7.3|^8.0",
         "w7/engine-validate": "^4.0",
-        "symfony/console": "^5.2",
-        "ergebnis/classy": "^1.1",
-        "symfony/finder": "^5.2|^4.0",
-        "itwmw/engine-validate-middleware": "^4.0"
+        "symfony/console": ">=5.2",
+        "symfony/finder": ">=4.0",
+        "itwmw/engine-validate-middleware": "^4.0",
+        "guzzlehttp/guzzle": "^7.4",
+        "composer/composer": "^2.1"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3"
