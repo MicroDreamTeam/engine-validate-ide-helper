@@ -20,7 +20,7 @@
         "symfony/finder": ">=4.0",
         "itwmw/engine-validate-middleware": "^4.0",
         "guzzlehttp/guzzle": "^7.4",
-        "composer/composer": "^2.1"
+        "composer/composer": "^2.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3"

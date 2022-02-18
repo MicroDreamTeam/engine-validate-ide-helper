@@ -1,9 +1,8 @@
 <?php
-
 namespace Itwmw\Validate\Ide\Helper;
 
 use Composer\Autoload\ClassLoader;
-use Ergebnis\Classy\Constructs;
+use Composer\Autoload\ClassMapGenerator;
 use ReflectionClass;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
@@ -31,10 +30,7 @@ class IdeHelperCommand extends Command
             $names  = [];
             foreach ($_names as $name) {
                 if (file_exists($name)) {
-                    $constructs = Constructs::fromSource(file_get_contents($name));
-                    foreach ($constructs as $construct) {
-                        $names[] = $construct->name();
-                    }
+                    $names = ClassMapGenerator::createMap($name);
                 } elseif (class_exists($name)) {
                     $names[] = $name;
                 } else {
@@ -42,6 +38,7 @@ class IdeHelperCommand extends Command
                 }
             }
         }
+        $names        = array_keys($names);
         $dirs         = $input->getOption('dir');
         $ignoreVendor = (bool)$input->getOption('vendor');
         $reflection   = new ReflectionClass(ClassLoader::class);
@@ -57,12 +54,7 @@ class IdeHelperCommand extends Command
                 $finder->exclude('vendor');
             }
             $finder->name('*.php');
-            foreach ($finder as $file) {
-                $constructs = Constructs::fromSource($file->getContents());
-                foreach ($constructs as $construct) {
-                    $names[] = $construct->name();
-                }
-            }
+            $names = array_merge($names, array_keys(ClassMapGenerator::createMap($finder)));
         }
 
         if (empty($names)) {
