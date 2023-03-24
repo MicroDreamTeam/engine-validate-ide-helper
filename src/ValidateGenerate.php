@@ -60,7 +60,7 @@ class ValidateGenerate
                 } else {
                     $validateClass = null;
                 }
-                
+
                 $methodDefine = $file->readLine($method->getStartLine());
                 $publicPrefix = $this->getPublicPrefix($methodDefine);
                 $newCommon    = $this->makeDocComment($method, $validateClass, $publicPrefix);
@@ -97,7 +97,7 @@ class ValidateGenerate
 
         $validatePos = -1;
         for ($i = 0; $i < count($docs); $i++) {
-            if (false !== strpos($docs[$i], '@validate')) {
+            if (str_contains($docs[$i], '@validate')) {
                 $validatePos = $i;
                 break;
             }
